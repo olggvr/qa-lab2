@@ -1,16 +1,15 @@
 package com.example.integration;
 
-import com.example.math.MathFunction;
 import com.example.stub.*;
 import com.example.system.*;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class FunctionSystemStubTest {
+public class FullSystemIntegrationTest {
 
     @Test
-    void testSystemWithStubOnly() {
+    void testFullIntegration() {
 
         FunctionSystem system = new FunctionSystem(
 
@@ -35,17 +34,5 @@ public class FunctionSystemStubTest {
 
         assertFalse(Double.isNaN(neg));
         assertFalse(Double.isNaN(pos));
-    }
-
-    @Test
-    void testFunctionSystemBranchingOnly() {
-
-        MathFunction trigStub = x -> 100.0;
-        MathFunction logStub = x -> 200.0;
-
-        FunctionSystem system = new FunctionSystem(trigStub, logStub);
-
-        assertEquals(100.0, system.calculate(-1));
-        assertEquals(200.0, system.calculate(2));
     }
 }

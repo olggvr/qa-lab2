@@ -1,0 +1,28 @@
+package com.example.integration;
+
+import com.example.stub.*;
+import com.example.system.LogExpression;
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+public class LogModulesIntegrationTest {
+
+    @Test
+    void testLogModulesIntegration() {
+
+        double x = 2.0;
+
+        LnStub ln = new LnStub();         // 0.693
+        Log2Stub log2 = new Log2Stub();   // 1
+        Log3Stub log3 = new Log3Stub();   // 0.63
+        Log5Stub log5 = new Log5Stub();   // 0.43
+        Log10Stub log10 = new Log10Stub();// 0.3
+
+        LogExpression log = new LogExpression(ln, log2, log3, log5, log10);
+
+        double result = log.calculate(x);
+
+        assertFalse(Double.isNaN(result));
+    }
+}
