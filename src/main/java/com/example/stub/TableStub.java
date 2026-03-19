@@ -1,7 +1,6 @@
 package com.example.stub;
 
 import com.example.math.MathFunction;
-
 import java.util.Map;
 
 public abstract class TableStub implements MathFunction {

@@ -11,24 +11,25 @@ public class FunctionSystemStubTest {
     @Test
     void testSystemWithStubOnly() {
 
-        TrigExpression trig = new TrigExpression(
-                new CotStub(),
-                new CscStub(),
-                new SecStub(),
-                new CosStub()
+        FunctionSystem system = new FunctionSystem(
+
+                new TrigExpression(
+                        new CotStub(),
+                        new CscStub(),
+                        new SecStub(),
+                        new CosStub()
+                ),
+
+                new LogExpression(
+                        new LnStub(),
+                        new Log2Stub(),
+                        new Log3Stub(),
+                        new Log5Stub(),
+                        new Log10Stub()
+                )
         );
 
-        LogExpression log = new LogExpression(
-                new LnStub(),
-                new Log2Stub(),
-                new Log3Stub(),
-                new Log5Stub(),
-                new Log10Stub()
-        );
-
-        FunctionSystem system = new FunctionSystem(trig, log);
-
-        double neg = system.calculate(-Math.PI / 4);
+        double neg = system.calculate(-Math.PI / 2);
         double pos = system.calculate(2.0);
 
         assertFalse(Double.isNaN(neg));

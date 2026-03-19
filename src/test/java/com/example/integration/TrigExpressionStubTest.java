@@ -11,15 +11,14 @@ public class TrigExpressionStubTest {
     @Test
     void testTrigExpressionStub() {
 
-        CotStub cot = new CotStub();
-        CscStub csc = new CscStub();
-        SecStub sec = new SecStub();
-        CosStub cos = new CosStub();
+        double x = -Math.PI / 2;
 
-        TrigExpression trig =
-                new TrigExpression(cot, csc, sec, cos);
-
-        double x = Math.PI / 4;
+        TrigExpression trig = new TrigExpression(
+                new CotStub(),
+                new CscStub(),
+                new SecStub(),
+                new CosStub()
+        );
 
         double result = trig.calculate(x);
 
