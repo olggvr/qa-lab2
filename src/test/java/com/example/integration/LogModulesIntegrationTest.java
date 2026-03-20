@@ -1,5 +1,7 @@
 package com.example.integration;
 
+import com.example.math.base.Ln;
+import com.example.math.log.Log2;
 import com.example.stub.*;
 import com.example.system.LogExpression;
 import org.junit.jupiter.api.Test;
@@ -13,8 +15,8 @@ public class LogModulesIntegrationTest {
 
         double x = 2.0;
 
-        LnStub ln = new LnStub();         // 0.693
-        Log2Stub log2 = new Log2Stub();   // 1
+        Ln ln = new Ln(1e-6);         // 0.693
+        Log2 log2 = new Log2(ln);   // 1
         Log3Stub log3 = new Log3Stub();   // 0.63
         Log5Stub log5 = new Log5Stub();   // 0.43
         Log10Stub log10 = new Log10Stub();// 0.3
